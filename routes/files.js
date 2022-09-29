@@ -76,7 +76,7 @@ router.post('/',(req,res)=>{
     })
     //response download link
    // return res.json({sucess: `file is send...`}) 
-   return res.json({file: `${process.env.APP_BASE_URL}/files/${id}`})
+   return res.json({file: `${process.env.APP_BASE_URL}files/${id}`})
 })
 //get data from upload
 
