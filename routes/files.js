@@ -75,7 +75,8 @@ router.post('/',(req,res)=>{
      
     })
     //response download link
-    return res.json({sucess: `file is send...`}) 
+   // return res.json({sucess: `file is send...`}) 
+   return res.json({file: `${process.env.APP_BASE_URL}/files/${id}`})
 })
 //get data from upload
 
@@ -83,7 +84,7 @@ router.post('/',(req,res)=>{
 
 //send email
  
-router.post('/send',async(req,res)=>{
+//router.post('/send',async(req,res)=>{
     //validate request
     // console.log(req.body.uuid);
     // return res.send({})
@@ -120,6 +121,6 @@ router.post('/send',async(req,res)=>{
     // })
 
     //  return res.send({sucess:  true})
-})
+
 
 module.exports = router;
