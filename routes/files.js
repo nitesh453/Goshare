@@ -27,7 +27,7 @@ router.post('/',(req,res)=>{
             return res.status(500).send({error:err.message})
         }
     //store into database
-     const file = new File({
+     const file = await new File({
         filename: req.file.filename,
         uuid: id,
         path:req.file.path,
