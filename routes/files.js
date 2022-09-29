@@ -5,7 +5,7 @@ const File = require('../models/fileschema')
 const {v4:uuid4} = require('uuid')
 
 let storage = multer.diskStorage({
-    destination: (req,file,cb)=> cb(null,'uploads/'),
+    destination: (req,file,cb)=> cb(null,'./uploads/'),
     filename: (req,file,cb) =>{
         const uniquename = `${Date.now()}-${Math.round(Math.random() * 1E9)}${path.extname(file.originalname)}`;
         cb(null,uniquename)
@@ -28,6 +28,7 @@ router.post('/',(req,res)=>{
         }
     //store into database
      const file = new File({
+        filename: req.file.filename,
         uuid: id,
         path:req.file.path,
         size:req.file.size
