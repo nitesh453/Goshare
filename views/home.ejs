@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Goshare</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/homestyle.css" />
+</head>
+
+<body>
+   
+
+  <div class="header">
+    <h1>Goshare</h1>
+  </div>
+
+  <div class="container">
+    <form class="signup-form" action="/api/files" method="post" enctype="multipart/form-data">
+
+    <h3>Upload your File :</h3>
+    <div class="drag-area">
+      <div class="icon">
+        <i class="fas fa-images"></i>
+      </div>
+      <!--  To allow multiple file uploads in HTML forms, use the multiple attributes. The multiple attributes work with email and file input types. -->
+
+      <span class="header">Drag & Drop</span>
+      <span class="header">or <span class="button">browse</span></span>
+      <input type="file" name="myfile" hidden multiple />
+      <span class="support">Supports: All File</span>
+      <input type="text" id="from" class="gmail" name="from" placeholder="Enter sender gmail...">
+      <input type="text" id="to" class="gmail" name="to" placeholder="Enter receiver gmail....">
+      <button type="submit" class="btn" onclick="data()">SendFile</button>
+      </form>
+    </div>
+
+  </div>
+
+  <script>
+    const dropArea = document.querySelector('.drag-area');
+    const dragText = document.querySelector('.header');
+    const from = document.querySelector('#from');
+    const to = document.querySelector('#to');
+
+    let button = dropArea.querySelector('.button');
+    let input = dropArea.querySelector('input');
+
+    let file;
+
+    button.onclick = () => {
+      input.click();
+    };
+
+    // when browse
+    input.addEventListener('change', function () {
+      file = this.files;
+     // console.log(file);
+
+      // dropArea.classList.add('active');
+      //displayFile();
+    });
+
+    function data() {
+    //   console.log(from.value);
+    //   console.log(to.value);
+    }
+
+  </script>
+</body>
+
+</html>
