@@ -34,7 +34,7 @@ router.post('/',(req,res)=>{
         size:req.file.size
      })
         
-     await file.save();
+      file.save();
     // return res.json({file: `${req.body.from} ${req.body.to} ${req.body.myfile}`})
     // return res.json({file: `${process.env.APP_BASE_URL}/files/${response.uuid}`})
      //http://localhost:3000/files/2347jh874reu982jhd
