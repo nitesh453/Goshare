@@ -28,10 +28,10 @@ router.post('/',(req,res)=>{
         }
     //store into database
      const file = new File({
-        filename:req.files.filename,
+        filename:req.file.name,
         uuid: id,
-        path:req.files.path,
-        size:req.files.size
+        path:req.file.path,
+        size:req.file.size
      })
         
      const response = await file.save();
